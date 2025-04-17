@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>恐竜コンテンツサイト</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .site-wrapper {
+      width: 216px;
+      height: 280px;
+      position: relative;
+      overflow: hidden;
+      font-family: sans-serif;
+      background: linear-gradient(to bottom, #d26b2e, #e79353);
+    }
+
+    .dino-background {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 15px;
+      color: white;
+      padding: 8px 4px 4px;
+      z-index: 3;
+      position: relative;
+    }
+
+    .content-button {
+      position: absolute;
+      z-index: 4;
+      width: 60px;
+      height: 60px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      font-size: 10px;
+      color: black;
+      border: none;
+      background-color: transparent;
+      padding-left: 5px;
+      padding-top: 5px;
+    }
+
+    .content-button img {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 2px;
+    }
+
+    .quiz  { top: 55px; left: 28px; }
+    .video { top: 70px; right: 14px; }
+    .photo { bottom: 30px; left: 22px; }
+    .vote  { bottom: 12px; right: 24px; }
+
+    .footprint {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrapper">
+    <div class="title">気になるコンテンツの<br>ボタンを押してみてください</div>
+
+    <div class="content-button quiz" style="background-image: url('whitedinosaur.png');">
+      <img src="https://img.icons8.com/ios-filled/50/light-on--v1.png" alt="クイズ">
+      クイズ
+    </div>
+    <div class="content-button video" style="background-image: url('whitedinosaur.png');">
+      <img src="https://img.icons8.com/ios-filled/50/megaphone.png" alt="動画">
+      動画
+    </div>
+    <div class="content-button photo" style="background-image: url('whitedinosaur.png');">
+      <img src="https://img.icons8.com/ios-filled/50/camera.png" alt="写真">
+      写真
+    </div>
+    <div class="content-button vote" style="background-image: url('whitedinosaur.png');">
+      <img src="https://img.icons8.com/ios-filled/50/handshake.png" alt="投票">
+      投票
+    </div>
+
+    <img class="dino-background" src="dinosaur_silhouette.png" alt="恐竜背景">
+
+    <img class="footprint" id="footprint1" src="dinosaur.png" alt="足跡">
+    <img class="footprint" id="footprint2" src="dinosaur.png" alt="足跡">
+    <img class="footprint" id="footprint3" src="dinosaur.png" alt="足跡">
+  </div>
+
+  <script>
+    const footprints = [
+      { el: document.getElementById('footprint1'), x: 10, y: 0, dir: 1 },
+      { el: document.getElementById('footprint2'), x: 92, y: 50, dir: 1 },
+      { el: document.getElementById('footprint3'), x: 178, y: 100, dir: 1 }
+    ];
+
+    function animateFootprints() {
+      footprints.forEach(fp => {
+        fp.y += fp.dir * 0.4;
+        if (fp.y > (280 - 35)) fp.dir = -1;
+        if (fp.y < 0) fp.dir = 1;
+        fp.el.style.top = fp.y + 'px';
+        fp.el.style.left = fp.x + 'px';
+      });
+    }
+
+    setInterval(animateFootprints, 20);
+  </script>
+</body>
+</html>
