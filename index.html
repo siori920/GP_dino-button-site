@@ -16,8 +16,8 @@
     }
 
     .site-wrapper {
-      width: 216px;
-      height: 280px;
+      width: 324px;   /* 216 × 1.5 */
+      height: 420px;  /* 280 × 1.5 */
       position: relative;
       overflow: hidden;
       font-family: sans-serif;
@@ -33,9 +33,9 @@
 
     .title {
       text-align: center;
-      font-size: 15px;
+      font-size: 23px;    /* 15 × 1.5 */
       color: white;
-      padding: 8px 4px 4px;
+      padding: 12px 6px 6px; /* (8,4,4) × 1.5 */
       z-index: 3;
       position: relative;
     }
@@ -43,8 +43,8 @@
     .content-button {
       position: absolute;
       z-index: 4;
-      width: 60px;
-      height: 60px;
+      width: 90px;    /* 60 × 1.5 */
+      height: 90px;   /* 60 × 1.5 */
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -53,29 +53,29 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
-      font-size: 10px;
+      font-size: 15px;   /* 10 × 1.5 */
       color: black;
       border: none;
       background-color: transparent;
-      padding-left: 5px;
-      padding-top: 5px;
+      padding-left: 8px;  /* 5 × 1.5 */
+      padding-top: 8px;   /* 5 × 1.5 */
     }
 
     .content-button img {
-      width: 28px;
-      height: 28px;
-      margin-bottom: 2px;
+      width: 42px;   /* 28 × 1.5 */
+      height: 42px;  /* 28 × 1.5 */
+      margin-bottom: 3px; /* 2 × 1.5 */
     }
 
-    .quiz  { top: 55px; left: 28px; }
-    .video { top: 70px; right: 14px; }
-    .photo { bottom: 30px; left: 22px; }
-    .vote  { bottom: 12px; right: 24px; }
+    .quiz  { top: 83px; left: 42px; }    /* (55,28) × 1.5 */
+    .video { top: 105px; right: 21px; }  /* (70,14) × 1.5 */
+    .photo { bottom: 45px; left: 33px; } /* (30,22) × 1.5 */
+    .vote  { bottom: 18px; right: 36px; }/* (12,24) × 1.5 */
 
     .footprint {
       position: absolute;
-      width: 35px;
-      height: 35px;
+      width: 53px;    /* 35 × 1.5 */
+      height: 53px;   /* 35 × 1.5 */
       z-index: 2;
     }
   </style>
@@ -110,15 +110,15 @@
 
   <script>
     const footprints = [
-      { el: document.getElementById('footprint1'), x: 10, y: 0, dir: 1 },
-      { el: document.getElementById('footprint2'), x: 92, y: 50, dir: 1 },
-      { el: document.getElementById('footprint3'), x: 178, y: 100, dir: 1 }
+      { el: document.getElementById('footprint1'), x: 15,  y: 0,  dir: 1 },  /* (10,0) × 1.5 */
+      { el: document.getElementById('footprint2'), x: 138, y: 75, dir: 1 },  /* (92,50) × 1.5 */
+      { el: document.getElementById('footprint3'), x: 267, y: 150, dir: 1 }  /* (178,100) × 1.5 */
     ];
 
     function animateFootprints() {
       footprints.forEach(fp => {
-        fp.y += fp.dir * 0.4;
-        if (fp.y > (280 - 35)) fp.dir = -1;
+        fp.y += fp.dir * 0.6;  /* (0.4 × 1.5) */
+        if (fp.y > (420 - 53)) fp.dir = -1;  /* (280-35)×1.5 */
         if (fp.y < 0) fp.dir = 1;
         fp.el.style.top = fp.y + 'px';
         fp.el.style.left = fp.x + 'px';
