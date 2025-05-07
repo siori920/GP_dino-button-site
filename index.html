@@ -27,7 +27,8 @@
     .dino-background {
       position: absolute;
       bottom: 0;
-      width: 100%;
+      width: 80%;
+      left: 10%;
       z-index: 1;
     }
 
@@ -45,10 +46,8 @@
       z-index: 4;
       width: 90px;
       height: 90px;
-      background-image: url('whitedinosaur.png');
       background-size: contain;
       background-repeat: no-repeat;
-      /* 白い恐竜画像を15px上に移動 */
       background-position: center -15px;
       text-align: left;
       display: flex;
@@ -69,16 +68,17 @@
       margin-bottom: 3px;
     }
 
-    .quiz  { top: 83px; left: 42px; }
-    .video { top: 105px; right: 21px; }
-    .photo { bottom: 45px; left: 33px; }
-    .vote  { bottom: 18px; right: 36px; }
+    .quiz  { top: calc(0px + 53px + 15px); left: 42px; }
+    .video { top: calc(75px + 53px + 15px); right: 21px; }
+    .photo { top: calc(150px + 53px + 15px); left: 33px; }
+    .vote  { top: calc(150px + 53px + 15px); right: 36px; }
 
     .footprint {
       position: absolute;
       width: 53px;
       height: 53px;
       z-index: 2;
+      object-fit: contain;
     }
   </style>
 </head>
@@ -86,22 +86,22 @@
   <div class="site-wrapper">
     <div class="title">気になるコンテンツの<br>ボタンを押してみてください</div>
 
-    <button class="content-button quiz">
+    <div class="content-button quiz" style="background-image: url('whitedinosaur.png');">
       <img src="https://img.icons8.com/ios-filled/50/light-on--v1.png" alt="クイズ">
       クイズ
-    </button>
-    <button class="content-button video">
+    </div>
+    <div class="content-button video" style="background-image: url('whitedinosaur.png');">
       <img src="https://img.icons8.com/ios-filled/50/megaphone.png" alt="動画">
       動画
-    </button>
-    <button class="content-button photo">
+    </div>
+    <div class="content-button photo" style="background-image: url('whitedinosaur.png');">
       <img src="https://img.icons8.com/ios-filled/50/camera.png" alt="写真">
       写真
-    </button>
-    <button class="content-button vote">
+    </div>
+    <div class="content-button vote" style="background-image: url('whitedinosaur.png');">
       <img src="https://img.icons8.com/ios-filled/50/handshake.png" alt="投票">
       投票
-    </button>
+    </div>
 
     <img class="dino-background" src="dinosaur_silhouette.png" alt="恐竜背景">
 
@@ -131,3 +131,4 @@
   </script>
 </body>
 </html>
+
