@@ -27,8 +27,7 @@
     .dino-background {
       position: absolute;
       bottom: 0;
-      width: 80%; /* 0.8倍に縮小 */
-      left: 10%; /* 中央に寄せる */
+      width: 100%;
       z-index: 1;
     }
 
@@ -49,6 +48,7 @@
       background-image: url('whitedinosaur.png');
       background-size: contain;
       background-repeat: no-repeat;
+      /* 白い恐竜画像を15px上に移動 */
       background-position: center -15px;
       text-align: left;
       display: flex;
@@ -69,11 +69,10 @@
       margin-bottom: 3px;
     }
 
-    /* 足跡のy位置 + 53px(足跡高さ) + 15px */
-    .quiz  { top: calc(0px + 53px + 15px); left: 42px; }
-    .video { top: calc(75px + 53px + 15px); right: 21px; }
-    .photo { top: calc(150px + 53px + 15px); left: 33px; }
-    .vote  { top: calc(150px + 53px + 15px); right: 36px; } /* voteは3番目の足跡と同じY座標とする */
+    .quiz  { top: 83px; left: 42px; }
+    .video { top: 105px; right: 21px; }
+    .photo { bottom: 45px; left: 33px; }
+    .vote  { bottom: 18px; right: 36px; }
 
     .footprint {
       position: absolute;
