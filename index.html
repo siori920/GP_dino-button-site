@@ -14,7 +14,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .site-wrapper {
       width: 324px;
       height: 420px;
@@ -23,7 +22,6 @@
       font-family: sans-serif;
       background: linear-gradient(to bottom, #d26b2e, #e79353);
     }
-
     .dino-background {
       position: absolute;
       bottom: 0;
@@ -31,7 +29,6 @@
       left: 10%;
       z-index: 1;
     }
-
     .title {
       text-align: center;
       font-size: 23px;
@@ -40,39 +37,19 @@
       z-index: 3;
       position: relative;
     }
-
     .content-button {
       position: absolute;
       z-index: 4;
       width: 90px;
       height: 90px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center -15px;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      font-size: 15px;
-      color: black;
       border: none;
       background-color: transparent;
-      padding-left: 8px;
-      padding-top: 8px;
+      cursor: pointer;
     }
-
-    .content-button img {
-      width: 42px;
-      height: 42px;
-      margin-bottom: 3px;
-    }
-
     .quiz  { top: calc(0px + 53px + 15px); left: 42px; }
     .video { top: calc(75px + 53px + 15px); right: 21px; }
     .photo { top: calc(150px + 53px + 15px); left: 33px; }
     .vote  { top: calc(150px + 53px + 15px); right: 36px; }
-
     .footprint {
       position: absolute;
       width: 53px;
@@ -85,38 +62,21 @@
 <body>
   <div class="site-wrapper">
     <div class="title">気になるコンテンツの<br>ボタンを押してみてください</div>
-
-    <div class="content-button quiz" style="background-image: url('whitedinosaur.png');">
-      <img src="https://img.icons8.com/ios-filled/50/light-on--v1.png" alt="クイズ">
-      クイズ
-    </div>
-    <div class="content-button video" style="background-image: url('whitedinosaur.png');">
-      <img src="https://img.icons8.com/ios-filled/50/megaphone.png" alt="動画">
-      動画
-    </div>
-    <div class="content-button photo" style="background-image: url('whitedinosaur.png');">
-      <img src="https://img.icons8.com/ios-filled/50/camera.png" alt="写真">
-      写真
-    </div>
-    <div class="content-button vote" style="background-image: url('whitedinosaur.png');">
-      <img src="https://img.icons8.com/ios-filled/50/handshake.png" alt="投票">
-      投票
-    </div>
-
+    <div class="content-button quiz"></div>
+    <div class="content-button video"></div>
+    <div class="content-button photo"></div>
+    <div class="content-button vote"></div>
     <img class="dino-background" src="dinosaur_silhouette.png" alt="恐竜背景">
-
     <img class="footprint" id="footprint1" src="dinosaur.png" alt="足跡">
     <img class="footprint" id="footprint2" src="dinosaur.png" alt="足跡">
     <img class="footprint" id="footprint3" src="dinosaur.png" alt="足跡">
   </div>
-
   <script>
     const footprints = [
       { el: document.getElementById('footprint1'), x: 15,  y: 0,  dir: 1 },
       { el: document.getElementById('footprint2'), x: 138, y: 75, dir: 1 },
       { el: document.getElementById('footprint3'), x: 267, y: 150, dir: 1 }
     ];
-
     function animateFootprints() {
       footprints.forEach(fp => {
         fp.y += fp.dir * 0.6;
@@ -126,7 +86,6 @@
         fp.el.style.left = fp.x + 'px';
       });
     }
-
     setInterval(animateFootprints, 20);
   </script>
 </body>
